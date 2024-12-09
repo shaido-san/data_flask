@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<h1>入力内容の表示</h1>
+{% endblock %}
+
+{% block content %}
+
+    <table>
+        <tr>
+            <td>{{ form.name.label }}</td>
+            <td>{{ form.name.data }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.age.label }}</td>
+            <td>{{ form.age.data }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.gender.label }}</td>
+            <td>{{ form.gender.data }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.password.label }}</td>
+            <td>{{ form.password.data }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.confirm_password.label }}</td>
+            <td>{{ form.confirm_password.data }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.email.label }}</td>
+            <td>{{ form.email.data }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.birthday.label }}</td>
+            <td>{{ form.birthday.data }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.area.label }}</td>
+            <td>{{ form.area.data }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.comment.label }}</td>
+            <td>{{ form.comment.data}}</td>
+        </tr>
+        <tr>
+            <td>{{ form.terms.label }}</td>
+            <td>{{ form.terms.data }}</td>
+        </tr>
+    </table>
+
+{% endblock %}

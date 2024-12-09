@@ -1,0 +1,15 @@
+{% extends "jinja/base2.html" %}
+
+{% block header %}
+<h1>辞書型</h1>
+{% endblock %}
+
+{% block content %}
+<h1>{{ key }}</h1>
+
+<h2>「・」で記述</h2>
+{{ key.val1 }} は {{ key.val2 }}
+<h2>「「」」で記述</h2>
+{{ key['val1' ]}} は {{ key['val2']}}
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "jinja/base2.html" %}
+
+{% block header %}
+<h1>複数の値を渡す：クラス型</h1>
+{% endblock %}
+
+{% block content %}
+<h1>{{ userList }}</h1>
+
+<h2>「・」で記述</h2>
+<ul>
+    <li>{{ userList.name }}</li>
+    <li>{{ userList.age }}</li>
+    
+</ul>
+<h2>「「」」で記述</h2>
+<ul>
+    <li>{{ userList['name'] }}</li>
+    <li>{{ userList['age'] }}</li>
+    
+</ul>
+
+
+{% endblock %}

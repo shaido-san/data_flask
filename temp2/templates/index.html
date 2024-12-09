@@ -1,0 +1,26 @@
+<!-- 継承元のファイル名を読み込み -->
+ {% extends "base.html" %}
+
+ <!-- head内のタイトルを上書き -->
+  <!-- ヘッダのタイトルー -->
+{% block title %}
+コーヒーショップバンタン | Index
+{% endblock %}
+
+<!-- header -->
+{% block header %}
+      <h1>コーヒーショップバンタン</h1>
+{% endblock %}
+
+<!-- content -->
+{% block content %}
+    <p>トップページです</p>
+    <ul>
+        <li><a href="{{ url_for('item') }}">商品一覧はこちら</a></li>
+        <li><a href="{{ url_for('show_item_for') }}">商品一覧はこちら（動的）</a></li>
+    </ul>
+{% endblock %}
+
+<!-- footer -->
+{% block footer %}
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<h1>WTFormを使用した入力フォーム</h1>
+{% endblock %}
+
+{% block content %}
+<div style="color: red;">
+{% if form.errors %}
+<!-- もし入力内容に問題があったら -->
+<ul>
+    {% for key,value in form.errors.items() %}
+    <li>{{ key }}:{{ value }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+</div>
+
+<form action="#" method="post" novalidate>
+    <table>
+        <tr>
+            <td>{{ form.name.label }}</td>
+            <td>{{ form.name }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.age.label }}</td>
+            <td>{{ form.age }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.gender.label }}</td>
+            <td>{{ form.gender }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.password.label }}</td>
+            <td>{{ form.password }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.confirm_password.label }}</td>
+            <td>{{ form.confirm_password }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.email.label }}</td>
+            <td>{{ form.email }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.birthday.label }}</td>
+            <td>{{ form.birthday }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.area.label }}</td>
+            <td>{{ form.area }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.comment.label }}</td>
+            <td>{{ form.comment(
+                style='height:100px; width:300px;'
+                ) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.terms.label }}</td>
+            <td>{{ form.terms }}</td>
+        </tr>
+    </table>
+    {{ form.submit }}
+</form>
+{% endblock %}

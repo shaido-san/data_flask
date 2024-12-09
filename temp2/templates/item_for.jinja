@@ -1,0 +1,29 @@
+<!-- 継承元のファイル名を読み込み -->
+{% extends "base.html" %}
+
+<!-- head内のタイトルを上書き -->
+ <!-- ヘッダのタイトルー -->
+{% block title %}
+コーヒーショップバンタン | Index
+{% endblock %}
+
+<!-- header -->
+{% block header %}
+     <h1>コーヒーショップバンタン (動的、for文で表示)</h1>
+{% endblock %}
+
+<!-- content -->
+{% block content %}
+   <p>商品一覧</p>
+   <ul>
+   <!--forで出すため一行でいい-->
+   {% for item in items %}
+      <li><a href="{{ url_for('show_detail_if', id=item.id) }}">{{ item.id }} {{ item.name }}</a></li>
+   {% endfor %}
+   </ul>
+{% endblock %}
+
+<!-- footer -->
+    {% block footer %}
+       {{ super()}}
+    {% endblock %}

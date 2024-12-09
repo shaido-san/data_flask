@@ -1,0 +1,42 @@
+<!-- 継承元のファイル名を読み込み -->
+{% extends "base.html" %}
+
+<!-- head内のタイトルを上書き -->
+ <!-- ヘッダのタイトルー -->
+{% block title %}
+コーヒーショップバンタン | 商品詳細
+{% endblock %}
+
+<!-- header -->
+{% block header %}
+     <h1>コーヒーショップバンタン動的</h1>
+{% endblock %}
+
+<!-- content -->
+{% block content %}
+<table>
+
+{% for item in itemList %}
+   {% if show_id == item.id %}
+   <tr>
+      <td>商品ID</td>
+      <td>{{ item.id }}</td>
+   </tr>
+   <tr>
+      <td>商品名</td>
+      <td>{{ item.name }}</td>
+   </tr>
+   {% endif %}
+{% endfor %}
+
+</table>
+   
+{% endblock %}
+
+<!-- footer -->
+{% block footer %}
+<!-- supper():継承元のブロック内要素を出力したい -->
+{{ super() }}
+<a href="{{ url_for('item') }}">商品一覧へ戻る</a>
+<a href="{{ url_for('show_item_for') }}">商品一覧へ戻る（動的）</a>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "jinja/base2.html" %}
+
+{% block header %}
+<h1>リスト型</h1>
+{% endblock %}
+
+{% block content %}
+<h1>{{ word_list }}</h1>
+
+<h2>「・」で記述</h2>
+<ul>
+    <li>{{ words.0 }}</li>
+    <li>{{ words.1 }}</li>
+    <li>{{ words.2 }}</li>
+    <li>{{ words.3 }}</li>
+</ul>
+<h2>「「」」で記述</h2>
+<ul>
+    <li>{{ words[0] }} は {{ words[1] }}</li>
+    
+</ul>
+
+
+{% endblock %}

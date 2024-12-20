@@ -44,4 +44,41 @@ Base.metadata.create_all(db_engine)
 session_maker = sessionmaker(bind=db_engine)
 session = session_maker()
 
+#削除
+print('(2)データ削除：実行')
+session.query(Item).delete()
+session.commit()
 
+#データ登録
+print('(3)データ登録：実行')
+item01 = Item('カタツムリ', 100)
+item02 = Item('鹿', 2900)
+item03 = Item('うし', 3000)
+session.add_all([item01, item02, item03])
+session.commit()
+
+#データ参照
+print('(4)データ参照全件：実行')
+item_all_list = session.query(Item).order_by(Item.id).all()
+for row in item_all_list:
+    print(row)
+
+#データ更新1件
+print('(5)データ更新１件：実行')
+target_item = session.query(Item).filter(Item.id == 1).first()
+target_item.price = 600
+session.commit()
+target_item = session.query(Item).filter(Item.id == 1).first()
+print('更新確認', target_item)
+
+print('（６）データ更新複数件：実行')
+target_item_list = session.query(Item).filter(or_(Item.id == 1, Item.id == 2)).all()
+for target_item in target_item_list:
+    target_item.price = 9999
+session.commit()
+
+#確認
+item_all_list = session.query(Item).order_by(Item.id).all()
+print('複数件更新できたか確認')
+for row in item_all_list:
+    print(row)

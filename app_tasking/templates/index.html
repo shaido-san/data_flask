@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+    <!-- Flaskで使用される静的ファイルを「static」というフォルダに入れておくことで、自動的に検出してくれる -->
+     <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head>
+<body>
+    <!-- container -->
+     <div class="container">
+        <h1 class="title-lv1">タスク管理アプリ</h1>
+
+        <a href="{{ url_for('new_task')}}" class="btn btn-reg">新規登録</a>
+
+        <h2 class="title-lv2">未完了：タスク一覧</h2>
+        <ul class="task-wrap">
+            {% for task in uncompleted_tasks %}
+            <li>
+                <p>{{ task.content }}</p>
+                <form method="post" action="{{ url_for('complete_task', task_id = task.id ) }}">
+                    <button type="submit" class="btn btn-complete">完了</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h2 class="title-lv2">完了：タスク一覧</h2>
+        <ul class="task-wrap">
+            {% for task in completed_tasks %}
+            <li>
+                <p>{{ task.content }}</p>
+                <form method="post" action="{{ url_for('uncompleted_task', task_id = task.id )}}">
+                    <button type="submit" class="btn btn-uncompleted">未完了へ戻す</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+     </div>
+    <!-- /.container -->
+</body>
+</html>

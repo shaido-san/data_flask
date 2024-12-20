@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Task</title>
+    <!-- Flaskで使用される静的ファイルを「static」というフォルダに入れておくことで、自動的に検出してくれる -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head>
+<body>
+    <!-- .container -->
+    <div class="container">
+        <h1 class="title-lv1">タスク管理アプリ</h1>
+        <h2 class="title-lv2">新規登録</h2>
+
+     <form method="POST" action="{{ url_for('new_task') }}">
+        <label for="content">タスク内容：</label><br>
+        <input type="text" id="content" name="content" class="input_text"><br>
+        <button type="submit" class="btn btn-reg">追加</button>
+        </form>
+     </form>
+    </div>
+    
+     <!-- /.container -->
+    
+</body>
+</html>

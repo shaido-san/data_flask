@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+h1{
+    color:red;
+}
+
+/* ボタン 役割でクラス名を書いて色はcssで統一する（将来青とかになっても、役割は変わらないことが多いため。*/
+/* 汎用 */
+.btn{
+    display: inline-block;
+    width: 300;
+    color: gray;
+    padding: 20ox 0;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+/* 登録 */
+.btn-reg{
+    background-color: brown;
+    color: aqua;
+    border: 0;
+}
+
+/* 完了 */
+.btn-complete{
+    background-color: blue;
+    color: chartreuse;
+    border: 0;
+}
+
+/* 完了から未完了に戻す */
+.btn-uncompleted{
+    background-color: violet;
+    color: forestgreen;
+    border: 0;
+}
